@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Event Platform</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
+  <body
+    class="bg-gray-100 font-sans leading-relaxed tracking-wide flex flex-col pt-16"
+  >
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-10">
+      <div class="container mx-auto flex justify-between items-center p-4">
+        <h1 class="text-2xl font-bold text-blue-600">Virtual Event Platform</h1>
+        <nav class="ml-auto flex space-x-4">
+          <a href="#" id="home-button" class="text-gray-700 hover:text-blue-600">Home</a>
+          <a href="#" id="events-button" class="text-gray-700 hover:text-blue-600">Events</a>
+          <a href="#" id="polls-button" class="text-gray-700 hover:text-blue-600">Polls</a>
+          <a href="#" id="qa-button" class="text-gray-700 hover:text-blue-600">Q&A</a>
+          <a href="#" id="networking-button" class="text-gray-700 hover:text-blue-600">Networking</a>
+          <a href="#" id="login-btn" class="text-gray-700 hover:text-blue-600">Login</a>
+          <button id="light-mode" class="text-gray-700 hover:text-blue-600">
+            <img
+              src="https://static-00.iconduck.com/assets.00/sun-symbol-emoji-2048x2048-wityey4r.png"
+              class="h-6 w-6"
+              alt="Light Mode"
+            />
+          </button>
+          <button id="dark-mode" class="text-gray-700 hover:text-blue-600">
+            <img
+              src="https://static.thenounproject.com/png/2712425-200.png"
+              class="h-6 w-6"
+              alt="Dark Mode"
+            />
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+  <section id="hero-section" class="hero-bg text-white py-32">
+    <div class="container mx-auto text-center">
+      <h2 class="text-5xl font-bold">Welcome to the Tech Conference 2024</h2>
+      <p class="text-xl mt-4">Join us online for an amazing experience of tech talks and networking.</p>
+      <button id="join-btn" class="mt-8 bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition">
+        Join Now
+      </button>
+    </div>
+  </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6 flex-grow">
+      <!-- Event Details -->
+      <section id="event-details" class="bg-white p-6 rounded-lg shadow-md mb-8">
+        <h2 class="text-3xl font-semibold mb-4">Event Details</h2>
+        <div id="event-info"></div>
+      </section>
+
+      <!-- Live Video -->
+      <section id="live-video" class="bg-white p-6 rounded-lg shadow-md mb-8">
+        <h2 class="text-3xl font-semibold mb-4">Live Video</h2>
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe
+            src="https://www.youtube.com/embed/WkBX4N79r4w"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            class="w-full h-full rounded-lg shadow-md"
+          ></iframe>
+        </div>
+      </section>
+
+      <!-- Chat and Live Polls Section -->
+      <section class="flex flex-col lg:flex-row bg-white p-6 rounded-lg shadow-md mb-8">
+        <!-- Live Chat -->
+        <div id="chat-section" class="lg:w-1/2 p-2">
+          <h2 class="text-3xl font-semibold mb-4">Live Chat</h2>
+          <div id="chat-container" class="h-64 overflow-y-auto bg-gray-100 p-4 rounded-lg shadow-inner mb-4">
+            <!-- Fake chat messages -->
+            <div class="mb-2">
+              <span class="font-bold text-blue-600">Alice:</span>
+              <span>Hi everyone!</span>
+            </div>
+            <div class="mb-2">
+              <span class="font-bold text-blue-600">Bob:</span>
+              <span>Looking forward to the event.</span>
+            </div>
+            <div class="mb-2">
+              <span class="font-bold text-blue-600">Charlie:</span>
+              <span>Can’t wait for the keynote!</span>
+            </div>
+          </div>
+          <div class="flex">
+            <input
+              type="text"
+              id="chat-input"
+              class="w-full p-2 border border-gray-300 rounded-lg"
+              placeholder="Type your message..."
+            />
+            <button id="chat-send" class="bg-blue-500 text-white px-4 py-2 ml-2 rounded-lg hover:bg-blue-600 transition">
+              Send
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Polls -->
+        <div id="live-polls" class="lg:w-1/2 p-2">
+          <h2 class="text-3xl font-semibold mb-4">Live Polls</h2>
+          <div id="polls-container"></div>
+        </div>
+      </section>
+
+      <!-- Q&A Sessions -->
+      <section id="qa-sessions" class="bg-white p-6 rounded-lg shadow-md mb-8">
+        <h2 class="text-3xl font-semibold mb-4">Q&A Sessions</h2>
+        <div id="qa-container"></div>
+      </section>
+
+      <!-- Networking Opportunities -->
+      <section id="networking-opportunities" class="bg-white p-6 rounded-lg shadow-md mb-8">
+        <h2 class="text-3xl font-semibold mb-4">Networking Opportunities</h2>
+        <div id="networking-container"></div>
+      </section>
+    </main>
+    
+    
+    <!-- Login/Register Modal -->
+  <div id="auth-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-2xl font-semibold" id="auth-title">Login</h3>
+        <button id="close-modal" class="text-gray-700 hover:text-gray-900">&times;</button>
+      </div>
+      <form id="auth-form">
+        <div class="mb-4">
+          <label for="username" class="block text-gray-700">Username</label>
+          <input type="text" id="username" name="username" class="w-full p-2 border border-gray-300 rounded-lg" required>
+        </div>
+        <div class="mb-4">
+          <label for="password" class="block text-gray-700">Password</label>
+          <input type="password" id="password" name="password" class="w-full p-2 border border-gray-300 rounded-lg" required>
+        </div>
+        <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition">Submit</button>
+      </form>
+      <p id="switch-auth" class="text-center text-blue-600 mt-4 cursor-pointer">
+        Don't have an account? <span class="underline-blue">Register</span> here    </div>
+  </div>
+
+    <!-- Profile Section -->
+    <div id="profile-section" class="hidden">
+      <img id="profile-pic" src="default-avatar.png" alt="Profile Picture" />
+      <p id="profile-name">John Doe</p>
+      <p id="profile-bio">Bio: Tech Enthusiast</p>
+      <button id="edit-profile-btn">Edit Profile</button>
+    </div>
+    <!-- Event Calendar -->
+    <div id="event-calendar"></div>
+
+    <!-- Reminder Notification -->
+    <div id="reminder-notification" class="hidden">
+      <p>Don't forget to join the event: Tech Conference 2024!</p>
+      <button id="close-reminder-btn">Close</button>
+    </div>
+    <!-- Live Chat Section -->
+    <!-- <div id="live-chat-container">
+      <div id="chat-messages"></div>
+      <input type="text" id="chat-input" placeholder="Type a message" />
+      <button id="chat-send-btn">Send</button>
+    </div> -->
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white p-4 text-center">
+      <p>&copy; 2024 Virtual Event Platform. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+
+<!-- MTW -->
+    <!-- special scripts for integration in App Gallery - must be placed at the bottom of the HTML after your code -->
+    <script>
+      // custom config for the MTW app 
+      const mtwAppConfig = {
+          border: true // app border in the MTW page                    
+      }
+
+      ///////////////////////////////////////////////////////
+      // implement this functions in order to use private API        
+      const sendPrivateApiRequest = async () => {
+          // your code here:
+          // sendRequestToParent({ cat: 'getAssets' })
+      }        
+
+      const acceptPrivateApiResponse = async (data) => {
+          // process received data here:
+          // console.log(data)
+      }
+
+      // use this in order to send on document load
+      document.addEventListener('DOMContentLoaded', () => {
+          // your code here:
+          //sendRequestToParent({ method: 'getAssets' })
+      })
+
+  </script>
+  <script src="https://morethanwallet.com/appstore/index.js"></script>
+</body>
+
+</html>

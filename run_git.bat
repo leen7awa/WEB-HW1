@@ -1,6 +1,6 @@
 :: use this bat file to commit and publish changes to github
 :: to run use .\run_git.bat
-@echo off
+
 setlocal
 
 :: Get the current date in 'dd-mm-yy' format

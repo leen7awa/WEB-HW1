@@ -60,19 +60,6 @@ const eventDetails = {
   document.getElementById('close-reminder-btn').addEventListener('click', () => {
     document.getElementById('reminder-notification').classList.add('hidden');
   });
-  // document.getElementById('chat-send-btn').addEventListener('click', () => {
-  //   const chatInput = document.getElementById('chat-input');
-  //   const chatMessages = document.getElementById('chat-messages');
-  //   const message = chatInput.value;
-    
-  //   if (message.trim()) {
-  //     const messageElement = document.createElement('div');
-  //     messageElement.textContent = `You: ${message}`;
-  //     chatMessages.appendChild(messageElement);
-  //     chatInput.value = '';
-  //     chatMessages.scrollTop = chatMessages.scrollHeight;
-  //   }
-  // });
   
   // Function to render event details
   function renderEventDetails() {
